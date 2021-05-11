@@ -44,8 +44,8 @@ void check_NET_FW_ACTION(std::wostream & out, LPCWSTR const name, Fn && fn)
 void check_profile(std::wostream & out, INetFwPolicy2 * const net_fw_policy2, NET_FW_PROFILE_TYPE2 const net_fw_profile_type2)
 {
     out << L"FirewallProfileType:" <<
-        (net_fw_profile_type2 & NET_FW_PROFILE2_PUBLIC ? L" public" : L"") <<
-        (net_fw_profile_type2 & NET_FW_PROFILE2_DOMAIN ? L" domain" : L"") <<
+        (net_fw_profile_type2 & NET_FW_PROFILE2_PUBLIC  ? L" public"  : L"") <<
+        (net_fw_profile_type2 & NET_FW_PROFILE2_DOMAIN  ? L" domain"  : L"") <<
         (net_fw_profile_type2 & NET_FW_PROFILE2_PRIVATE ? L" private" : L"") << std::endl;
 
     check_VARIANT_BOOL(out, L"FirewallEnabled"                             , [=](auto is_enabled) { return net_fw_policy2->get_FirewallEnabled                             (net_fw_profile_type2, is_enabled); });
